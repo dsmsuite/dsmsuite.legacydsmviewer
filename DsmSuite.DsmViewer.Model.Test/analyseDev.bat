@@ -1,0 +1,1 @@
+"D:\Github\DsmSuite\dsmviewer\DsmSuite.DsmViewer.Builder\bin\DsmSuite.DsmViewer.Builder.exe" BuilderSettings.xml

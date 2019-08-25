@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<system xmlns="urn:dsi-schema">
+  <elements>
+    <element id="0" name="A.AA.AAA" type="none" source="" />
+    <element id="1" name="A.AA.AAB" type="none" source="" />
+    <element id="2" name="A.AB.ABA" type="none" source="" />
+    <element id="3" name="A.AB.ABB" type="none" source="" />
+    <element id="4" name="B.BA.BAA" type="none" source="" />
+    <element id="5" name="B.BA.BAB" type="none" source="" />
+    <element id="6" name="B.BB.BBA" type="none" source="" />
+    <element id="7" name="B.BB.BBB" type="none" source="" />
+  </elements>
+  <relations>
+    <relation consumerId="0" providerId="4" type="none" weight="1" />
+    <relation consumerId="0" providerId="5" type="none" weight="2" />
+    <relation consumerId="0" providerId="6" type="none" weight="3" />
+    <relation consumerId="0" providerId="7" type="none" weight="4" />
+	
+    <relation consumerId="1" providerId="4" type="none" weight="100" />
+    <relation consumerId="1" providerId="5" type="none" weight="200" />
+    <relation consumerId="1" providerId="6" type="none" weight="300" />
+    <relation consumerId="1" providerId="7" type="none" weight="400" />
+	
+    <relation consumerId="2" providerId="4" type="none" weight="10000" />
+    <relation consumerId="2" providerId="5" type="none" weight="20000" />
+    <relation consumerId="2" providerId="6" type="none" weight="30000" />
+    <relation consumerId="2" providerId="7" type="none" weight="40000" />
+	
+    <relation consumerId="3" providerId="4" type="none" weight="1000000" />
+    <relation consumerId="3" providerId="5" type="none" weight="2000000" />
+    <relation consumerId="3" providerId="6" type="none" weight="3000000" />
+    <relation consumerId="3" providerId="7" type="none" weight="4000000" />
+	
+    <relation consumerId="7" providerId="0" type="none" weight="1" />
+  </relations>
+</system>

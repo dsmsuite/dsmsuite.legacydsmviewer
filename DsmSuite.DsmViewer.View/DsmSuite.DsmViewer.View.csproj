@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <ProjectGuid>{1C1B2F1E-F553-4DB6-8B68-6E66FBA78E90}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DsmSuite.DsmViewer.View</RootNamespace>
+    <AssemblyName>DsmSuite.DsmViewer.View</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>DSM.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Reports\BaseReport.cs" />
+    <Compile Include="Reports\CellConsumersReport.cs" />
+    <Compile Include="Reports\ElementConsumersReport.cs" />
+    <Compile Include="Reports\ElementProvidedInterfacesReport.cs" />
+    <Compile Include="Reports\CellProvidersReport.cs" />
+    <Compile Include="Reports\OverviewReport.cs" />
+    <Compile Include="Reports\RelationsReport.cs" />
+    <Compile Include="Reports\ElementRequiredInterfacesReport.cs" />
+    <Compile Include="ViewModel\CommandMoveNodeDown.cs" />
+    <Compile Include="ViewModel\CommandMoveNodeUp.cs" />
+    <Compile Include="ViewModel\CommandOpen.cs" />
+    <Compile Include="ViewModel\CommandPartition.cs" />
+    <Compile Include="ViewModel\CommandReport.cs" />
+    <Compile Include="ViewModel\CommandSave.cs" />
+    <Compile Include="ViewModel\CommandSaveAs.cs" />
+    <Compile Include="ViewModel\ICommand.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\CursorStateHelper.cs" />
+    <Compile Include="Dialogs\ErrorDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ErrorDialog.Designer.cs">
+      <DependentUpon>ErrorDialog.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Dialogs\ErrorDialog.resx">
+      <DependentUpon>ErrorDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Dialogs\HtmlViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\HtmlViewer.Designer.cs">
+      <DependentUpon>HtmlViewer.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Dialogs\HtmlViewer.resx">
+      <DependentUpon>HtmlViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Dialogs\ModelessMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ModelessMessageBox.Designer.cs">
+      <DependentUpon>ModelessMessageBox.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Dialogs\ModelessMessageBox.resx">
+      <DependentUpon>ModelessMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="UserControls\DisplayOptions.cs" />
+    <Compile Include="UserControls\LayoutHelper.cs" />
+    <Compile Include="View\MainView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MainView.Designer.cs">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\MainView.resx">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="UserControls\MatrixControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\MatrixPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\NodePanel.cs" />
+    <Compile Include="UserControls\TypeUserPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Images\Thumbs.db" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DsmSuite.DsmViewer.Model\DsmSuite.DsmViewer.Model.csproj">
+      <Project>{e3bb07b9-c000-480e-81ef-fd1d4b96bfde}</Project>
+      <Name>DsmSuite.DsmViewer.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DSM.ico" />
+    <Content Include="Images\Collapsed.gif" />
+    <Content Include="Images\DownArrow.gif" />
+    <Content Include="Images\DSM.gif" />
+    <Content Include="Images\DSM.ico" />
+    <Content Include="Images\Expanded.gif" />
+    <Content Include="Images\HighlightCyclic_Yellow.gif" />
+    <Content Include="Images\New.gif" />
+    <Content Include="Images\Open.gif" />
+    <Content Include="Images\Partition.gif" />
+    <Content Include="Images\Reports.gif" />
+    <Content Include="Images\Save.gif" />
+    <Content Include="Images\UpArrow.gif" />
+    <Content Include="Images\Zoom.gif" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*" Name="DSM Suite Viewer" Language="1033" Version="$(var.LongAssyVersion)" Manufacturer="DsmSuite" UpgradeCode="32A19E17-45AA-4159-AF0A-906FD5702E7A">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+    <Media Id="1" Cabinet="simple.cab" EmbedCab="yes" />
+
+    <MajorUpgrade Schedule="afterInstallInitialize"
+                  DowngradeErrorMessage="A later version of the DSM suite viewer is already installed"
+                  AllowSameVersionUpgrades="yes" />
+
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+      <Component Id="DsmSuite.DsmViewer.View.exe" Guid="1BF777EE-3672-4EEF-970D-EDD9E7540123">
+        <File Id="DsmSuite.DsmViewer.View.exe" Source="..\DsmSuite.DsmViewer.View\bin\DsmSuite.DsmViewer.View.exe" KeyPath="yes" Checksum="yes"/>
+      </Component>
+      <Component Id="DsmSuite.DsmViewer.Builder.exe" Guid="9215854B-12A6-4FC8-B01D-13F92CAC1BCF">
+        <File Id="DsmSuite.DsmViewer.Builder.exe" Source="..\DsmSuite.DsmViewer.Builder\bin\DsmSuite.DsmViewer.Builder.exe" KeyPath="yes" Checksum="yes"/>
+      </Component>
+      <Component Id="DsmSuite.DsmViewer.Model.dll" Guid="C13DB7D5-B1D5-4598-8D44-D176A7AFAAE2">
+        <File Id="DsmSuite.DsmViewer.Model.dll" Source="..\DsmSuite.DsmViewer.Model\bin\DsmSuite.DsmViewer.Model.dll" KeyPath="yes" Checksum="yes"/>
+      </Component>
+      <Component Id="DsmSuite.DsmViewer.Util.dll" Guid="45D06E06-6FC9-4E5E-A5E3-66BC27DA9EB0">
+        <File Id="DsmSuite.DsmViewer.Util.dlll" Source="..\DsmSuite.DsmViewer.Util\bin\DsmSuite.DsmViewer.Util.dll" KeyPath="yes" Checksum="yes"/>
+      </Component>
+    </ComponentGroup>
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="MAINFOLDER" Name="DsmSuite">
+          <Directory  Id="INSTALLFOLDER" Name="Viewer" />
+        </Directory>
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="DSM Suite"/>
+      </Directory>
+    </Directory>
+
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="6D4CA30F-8440-4BF8-B760-EC12A9FFB726">
+        <Shortcut Id="ApplicationStartMenuShortcut"
+                  Name="DSM dependency viewer"
+                  Description="Application to software dependencies in a matrix"
+                  Target="[#DsmSuite.DsmViewer.View.exe]"
+                  WorkingDirectory="APPLICATIONROOTDIRECTORY"/>
+        <RemoveFolder Id="CleanUpShortCut" Directory="ApplicationProgramsFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\Microsoft\MyApplicationName" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+
+    <Feature Id="ProductFeature" Title="DSM Viewer" Level="1">
+      <ComponentRef Id="DsmSuite.DsmViewer.View.exe" />
+      <ComponentRef Id="DsmSuite.DsmViewer.Builder.exe" />
+      <ComponentRef Id="DsmSuite.DsmViewer.Model.dll" />
+      <ComponentRef Id="DsmSuite.DsmViewer.Util.dll" />
+      <ComponentRef Id="ApplicationShortcut" />
+    </Feature>
+  </Product>
+</Wix>

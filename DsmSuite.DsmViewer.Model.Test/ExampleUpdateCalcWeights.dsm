@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DSM nestedhidden="False">
+  <Matrix>
+    <Module idref="1" name="A" parent="" namespace="" nested="False">
+      <Relation to="12" weight="1" cyclic="True" />
+      <Relation to="8" weight="1" cyclic="True" />
+    </Module>
+    <Module idref="2" name="AA" parent="1" namespace="A" nested="False">
+      <Relation to="12" weight="1" cyclic="True" />
+      <Relation to="8" weight="1" cyclic="True" />
+    </Module>
+    <Module idref="3" name="AAA" parent="2" namespace="A.AA" nested="False">
+      <Relation to="14" weight="1" cyclic="True" />
+    </Module>
+    <Module idref="4" name="AAB" parent="2" namespace="A.AA" nested="False" />
+    <Module idref="5" name="AB" parent="1" namespace="A" nested="False" />
+    <Module idref="6" name="ABA" parent="5" namespace="A.AB" nested="False" />
+    <Module idref="7" name="ABB" parent="5" namespace="A.AB" nested="False" />
+    <Module idref="8" name="B" parent="" namespace="" nested="False">
+      <Relation to="2" weight="1010" cyclic="True" />
+      <Relation to="1" weight="10101010" cyclic="True" />
+      <Relation to="5" weight="10100000" cyclic="False" />
+    </Module>
+    <Module idref="9" name="BA" parent="8" namespace="B" nested="False">
+      <Relation to="2" weight="303" cyclic="False" />
+      <Relation to="1" weight="3030303" cyclic="False" />
+      <Relation to="5" weight="3030000" cyclic="False" />
+    </Module>
+    <Module idref="10" name="BAA" parent="9" namespace="B.BA" nested="False">
+      <Relation to="3" weight="1" cyclic="False" />
+      <Relation to="4" weight="100" cyclic="False" />
+      <Relation to="6" weight="10000" cyclic="False" />
+      <Relation to="7" weight="1000000" cyclic="False" />
+    </Module>
+    <Module idref="11" name="BAB" parent="9" namespace="B.BA" nested="False">
+      <Relation to="3" weight="2" cyclic="False" />
+      <Relation to="4" weight="200" cyclic="False" />
+      <Relation to="6" weight="20000" cyclic="False" />
+      <Relation to="7" weight="2000000" cyclic="False" />
+    </Module>
+    <Module idref="12" name="BB" parent="8" namespace="B" nested="False">
+      <Relation to="2" weight="707" cyclic="True" />
+      <Relation to="1" weight="7070707" cyclic="True" />
+      <Relation to="5" weight="7070000" cyclic="False" />
+    </Module>
+    <Module idref="13" name="BBA" parent="12" namespace="B.BB" nested="False">
+      <Relation to="3" weight="3" cyclic="False" />
+      <Relation to="4" weight="300" cyclic="False" />
+      <Relation to="6" weight="30000" cyclic="False" />
+      <Relation to="7" weight="3000000" cyclic="False" />
+    </Module>
+    <Module idref="14" name="BBB" parent="12" namespace="B.BB" nested="False">
+      <Relation to="3" weight="4" cyclic="True" />
+      <Relation to="4" weight="400" cyclic="False" />
+      <Relation to="6" weight="40000" cyclic="False" />
+      <Relation to="7" weight="4000000" cyclic="False" />
+    </Module>
+  </Matrix>
+</DSM>
